@@ -1610,7 +1610,8 @@ h1 span,
 }
 
 .data-close #data {
-    left: -100%;
+    left: 0%;
+    top: 0%;
 }
 
 .data-open #data {

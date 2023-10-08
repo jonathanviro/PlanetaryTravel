@@ -90,3 +90,26 @@ function selectPlanet(identifier) {
 const redireccionar = () => {
     window.open(url, '_blank');
 };
+
+const widthP = $(window).width();
+const tamScreenMovil = 700;
+const timeAnimatedShowHide = 400;
+function onLoadScreen() {
+    if (widthP <= tamScreenMovil) {
+        $('#data').hide(timeAnimatedShowHide);
+        $('#iconPlanet').show(timeAnimatedShowHide);
+    }
+}
+$(document).on('click', '#data a', function () {
+    if (widthP <= tamScreenMovil) {
+        $('#data').hide(timeAnimatedShowHide);
+        $('#iconPlanet').show(timeAnimatedShowHide);
+    }
+});
+$(document).on('click', '#iconPlanet img', function () {
+    if (widthP <= tamScreenMovil) {
+        $('#data').show(timeAnimatedShowHide);
+        $('#iconPlanet').hide(timeAnimatedShowHide);
+    }
+});
+onLoadScreen();
