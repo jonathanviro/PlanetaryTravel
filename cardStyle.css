@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700|Teko:400');
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    /*height: auto;*/
+    height: 100px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card {
+    display: block;
+    margin: 0 auto;
+    perspective: 1000px;
+    position: relative;
+    transition: transform 0.1s ease;
+    text-decoration: none;
+    width: 320px;
+    font-size: 14px;
+
+    &::before {
+        content: '';
+        display: block;
+        box-shadow: #000 0 0 100px 30px;
+        position: absolute;
+        top: 20%;
+        right: 20%;
+        bottom: 10px;
+        left: 20%;
+        transition: opacity 0.3s ease, box-shadow 0.5s ease;
+        z-index: -1;
+        opacity: 1;
+        mix-blend-mode: overlay;
+    }
+}
+
+.card:active {
+    transform: scale(0.99);
+}
+
+.card:hover {
+    &::before {
+        box-shadow: #000 0 -5px 120px 20px;
+        opacity: 1;
+    }
+
+    .card__inner {
+        transform: rotate3d(0.5, 0, 0.1, 5deg);
+        &::before {
+            opacity: 0.4;
+        }
+    }
+}
+
+.card__inner {
+    background: #171a54;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        background: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 50%;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.card_img {
+    background: #ddd;
+    padding: 0;
+    margin: 0;
+}
+
+.card__content {
+    padding: 20px;
+    color: #fff;
+}
+
+.card__title {
+    font-family: Teko;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+    margin: 0;
+}
+
+.card__subtitle {
+    font-family: Teko;
+    text-transform: uppercase;
+    letter-spacing: 0.21em;
+    font-weight: normal;
+    margin: 0;
+
+    font-size: 1em;
+}
+
+.card__description {
+    margin-bottom: 2em;
+    color: #c5c5d4;
+}
+
+.card__cta {
+    font-weight: bold;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+}
