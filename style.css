@@ -1619,7 +1619,8 @@ h1 span,
 }
 
 .controls-close #controls {
-    right: -100%;
+    right: 0%;
+    top: 0px;
 }
 
 .controls-open #controls {

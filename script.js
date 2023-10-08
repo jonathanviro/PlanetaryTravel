@@ -94,10 +94,14 @@ const redireccionar = () => {
 const widthP = $(window).width();
 const tamScreenMovil = 700;
 const timeAnimatedShowHide = 400;
+
 function onLoadScreen() {
     if (widthP <= tamScreenMovil) {
         $('#data').hide(timeAnimatedShowHide);
         $('#iconPlanet').show(timeAnimatedShowHide);
+
+        $('#controls').hide(timeAnimatedShowHide);
+        $('#iconConfig').show(timeAnimatedShowHide);
     }
 }
 $(document).on('click', '#data a', function () {
@@ -112,4 +116,18 @@ $(document).on('click', '#iconPlanet img', function () {
         $('#iconPlanet').hide(timeAnimatedShowHide);
     }
 });
+
+$(document).on('click', '#controls label', function () {
+    if (widthP <= tamScreenMovil) {
+        $('#controls').hide(timeAnimatedShowHide);
+        $('#iconConfig').show(timeAnimatedShowHide);
+    }
+});
+$(document).on('click', '#iconConfig img', function () {
+    if (widthP <= tamScreenMovil) {
+        $('#controls').show(timeAnimatedShowHide);
+        $('#iconConfig').hide(timeAnimatedShowHide);
+    }
+});
+
 onLoadScreen();
